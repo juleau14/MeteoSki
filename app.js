@@ -7,7 +7,7 @@ const app = express();
 
 const routes = require('./routes');
 
-const job = schedule.scheduleJob('30 * * * * *', updateData);
+const job = schedule.scheduleJob('30 * * * *', updateData);
 
 
 app.set('view engine', 'hbs');
