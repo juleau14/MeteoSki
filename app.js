@@ -1,5 +1,5 @@
 const express = require('express');
-const updateData = require('./db');
+const updateData = require('./backend');
 const schedule = require('node-schedule');
 
 
