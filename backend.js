@@ -132,4 +132,4 @@ const updateData = async () => {
 }
 
 
-updateData();
+module.exports = updateData;
