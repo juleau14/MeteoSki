@@ -15,7 +15,7 @@ app.use(express.static('static'));
 
 app.get('*', routes);
 
-app.listen(5000, () => {
+app.listen(80, () => {
     updateData();
-    console.log("App running on port 3000 !");
+    console.log("App running on port 80 !");
 });
