@@ -8,38 +8,46 @@
     <title>SnowDepth</title>
 </head>
 <body>
-    <div class="top">
-        <h1 class="main_title">Bienvenue sur SnowDepth</h1>
-    </div>
-    
+
     <div class="content">
-        
-        {{#each stations}}
-        <div class="station">
-            <h2 class="station_name">{{ this.name }}</h2>
 
-            <div class="station_datas">
-                
-                <div class="top_snow">
+        <div class="stations_content">
+            
+            {{#each stations}}
+            <div class="station">
+                <h2 class="station_name">{{ this.name }}</h2>
 
-                    <h3 class="altitude">En haut :</h3>
+                <div class="station_datas">
+                    
+                    <div class="top_snow">
 
-                    <p class="value">{{ this.topsnow }}</p>
+                        <h3 class="altitude">En haut :</h3>
+
+                        <p class="value">{{ this.topsnow }}</p>
+
+                    </div>
+                    
+                    <div class="bottom_snow">
+
+                        <h3 class="altitude">En bas :</h3>
+
+                        <p class="value">{{ this.botsnow }}</p>
+
+                    </div>
 
                 </div>
-                
-                <div class="bottom_snow">
-
-                    <h3 class="altitude">En bas :</h3>
-
-                    <p class="value">{{ this.botsnow }}</p>
-
-                </div>
-
             </div>
-        </div>
-        {{/each}}
+            {{/each}}
 
+        </div>
+
+        <div class="news_content">
+
+            <h2 class="news_main_title">Actualités</h2>
+
+        </div>
+    
     </div>
+
 </body>
 </html>
