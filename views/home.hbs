@@ -13,9 +13,19 @@
 
         <img class="logo" src="/medias/logo.png" alt="logo">
 
-        <form action="" method="post" class="search_form">
+        <form action="" method="post" class="search_form" autocomplete="off">
 
-            <input type="text" name="search" class="search_bar" placeholder="Rechercher" required>
+            <div class="search_bar_div">
+
+                <input type="text" name="search" class="search_bar" placeholder="Rechercher" required>
+                
+                <ul class="proposed_list">
+                    {{#each stations}}
+                    <li class="proposed_station">{{this.name}}</li>
+                    {{/each}}
+                </ul>
+
+            </div>
 
             <input type="submit" name="search_button" class="search_button" value="GO"/>
 
