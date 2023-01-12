@@ -34,7 +34,6 @@ router.use('/home', (req, res) => {
             data["stations"]["station"+(i+1).toString()] = rows[i];
         }
 
-        console.log(data);
         
         res.render('home', data);
 
