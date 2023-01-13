@@ -19,11 +19,11 @@
 
                 <input type="text" name="search" class="search_bar" placeholder="Rechercher" required>
                 
-                <ul class="proposed_list">
+                <div class="proposed_list">
                     {{#each stations}}
-                    <li class="proposed_station">{{this.name}}</li>
+                    <button class="proposed_station">{{this.name}}</button>
                     {{/each}}
-                </ul>
+                </div>
 
             </div>
 
@@ -42,7 +42,7 @@
         </div>
 
         <div class="displayer_div">
-            <button class="displayer">Hide</button>
+            <button class="displayer">Météo du jour</button>
         </div>
 
         <div class="stations_content">

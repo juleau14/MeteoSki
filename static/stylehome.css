@@ -91,32 +91,44 @@ body {
 
 
 .proposed_list {
-    display: none;
-    position: absolute;
-    list-style: none;
-    background-color: white;
-    padding: 0;
-    width: calc(20vw + 6px);
-    margin-top: calc(5vh + 3px);
-    font-family: gotham_font;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     border: solid #011022 3px;
     border-top: none;
+
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+
+    margin-top: calc(5vh + 6px);
+
+    width: calc(20vw + 6px);
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    overflow: hidden;
 }
 
 
 .proposed_station {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: white;
+    border: none;
+    border-bottom: solid #011022 1px;
+
+    font-family: gotham_font;
+    font-size: large;
+
     height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .proposed_station:hover {
-    background-color: #011022;
     color: white;
+    background-color: #011022;
 }
 
 
@@ -188,7 +200,7 @@ body {
 
     z-index: 100;
 
-    margin-top: 10vh;
+    margin-top: -40vh;
 }
 
 
@@ -204,7 +216,7 @@ body {
 
 .displayer_div {
     width: 100%;
-    height: 5vh;
+    height: 15vh;
 
     display: flex;
     justify-content: center;
@@ -219,8 +231,9 @@ body {
     border-radius: 30px;
     color: #011022;
 
-    height: 100%;
-    width: 8vh;
+    height: 5vh;
+
+    padding: 0 20px;
 
     display: flex;
     align-items: center;
@@ -250,7 +263,6 @@ body {
     justify-content: center;
 
 
-    margin: 0;
 }
 
 .station {

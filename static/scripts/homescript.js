@@ -2,13 +2,9 @@ const displayer = document.querySelector(".displayer");
 const globalWeather = document.querySelector(".global_weather_div");
 const searchBar = document.querySelector(".search_bar");
 const proposedList = document.querySelector(".proposed_list");
+const proposedStations = document.querySelectorAll(".proposed_station");
 
-
-const proposedStations = document.getElementsByClassName("proposed_station");
-
-
-
-var weatherIsHidden = false;
+var weatherIsHidden = true;
 
 
 searchBar.blur(function() {
@@ -21,7 +17,7 @@ displayer.addEventListener("click", function() {
         globalWeather.style.marginTop = "-40vh";
         globalWeather.style.backdropFilter = "none";
         weatherIsHidden = true;
-        displayer.innerHTML = "Show";
+        displayer.innerHTML = "Météo du jour";
     }
 
     else {
@@ -30,7 +26,7 @@ displayer.addEventListener("click", function() {
 
         globalWeather.style.backdropFilter = "blur(10px)";
         weatherIsHidden = false;
-        displayer.innerHTML = "Hide";
+        displayer.innerHTML = "Cacher";
     }
 });
 
@@ -45,14 +41,15 @@ searchBar.addEventListener("input", function() {        // a chaque fois qu'on e
             let search = searchBar.value;
             let displayable = true;                         // indique si cette station est affichable 
             for (let j = 0; j < search.length; j++) {        // pour chaque car de la recherche    
-                if (!stationName.includes(search[j].toUpperCase()) && !stationName.includes(search[j].toLowerCase())) {              // si l'un des char de la recherche n'est pas dans le nom
-                    if (search[j] != ' '){
+                if (!stationName.includes(search[j].toUpperCase()) && !stationName.includes(search[j].toLowerCase())) {     // si l'un des char de la recherche n'est pas dans le nom
+                    console.log(search[j]+ ' nest pas dans '+stationName);
+                    if (search[j] != ' '){                  // si le car dans la barre de recherche n'est pas un espace (cela permet de remplacer les '-' par des espaces par exemple)
                     displayable = false;                    // on indique que le nom n'est pas affichable 
                     }
                 }
             }
             if (displayable) {      // une fois sortis de la boucle on regarde si le nom est affichable 
-                proposedStations[i].style.display = "inherit";  // si oui on affiche le nom
+                proposedStations[i].style.display = "flex";  // si oui on affiche le nom
             }
             else {
                 proposedStations[i].style.display = "none";
@@ -77,5 +74,15 @@ searchBar.addEventListener("focus", function() {
 
 
 searchBar.addEventListener("focusout", function() {
-    proposedList.style.display = "none";
+    if (!proposedList.matches(':hover')){           // si la souris n'est pas sur un élément de la liste proposée 
+        proposedList.style.display = "none";        // on cache la liste
+    }
 });
+
+
+for (let i = 0; i < proposedStations.length; i++) {
+    proposedStations[i].addEventListener("click", function() {
+        searchBar.value = proposedStations[i].innerHTML;
+        console.log('caca')
+    });
+};
