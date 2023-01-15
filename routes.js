@@ -42,6 +42,10 @@ router.use('/home', (req, res) => {
 });
 
 
+router.use('/details', (req, res) => {
+    res.render('station_info.hbs');
+})
+
 
 
 // any other url redirect to home 

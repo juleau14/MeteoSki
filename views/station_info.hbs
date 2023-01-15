@@ -5,8 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnowDepth</title>
+    <link rel="stylesheet" href="styledetails.css">
 </head>
 <body>
-    
+    <header>
+        <img class="logo" src="/medias/logo.png" alt="logo">
+
+        <form action="" method="post" class="search_form" autocomplete="off">
+
+            <div class="search_bar_div">
+
+                <input type="text" name="search" class="search_bar" placeholder="Rechercher" required>
+                
+                <div class="proposed_list">
+                    {{#each stations}}
+                    <button class="proposed_station">{{this.name}}</button>
+                    {{/each}}
+                </div>
+
+            </div>
+
+            <input type="submit" name="search_button" class="search_button" value="GO"/>
+
+        </form>
+
+        <a href=""><button class="login_button">Connexion</button></a>
+    </header>
+
+    <main>
+
+        <div class="description">
+
+            <h1 class="title">Nom de la station</h1>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae exercitationem blanditiis corporis ipsa dolores repellendus illo deserunt sed temporibus eos, doloribus et reprehenderit quam omnis iure optio officia voluptate illum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla iste voluptatum praesentium nostrum harum exercitationem voluptatibus deserunt laudantium minima. Possimus debitis, illo vel at ipsum esse architecto quod impedit animi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolore sint maiores fugiat dolores consequuntur impedit maxime iure voluptatibus amet porro non vero expedita saepe labore, tempore, itaque minima accusantium!Lorem</p>
+
+        </div>
+
+        <div class="station_image_div">
+            <img src="" alt="" class="station_image">
+        </div>
+
+        <section class="comments">
+
+            <h2 class="comments_title">AVIS</h2>
+
+            <div class="comment_form_div">
+
+                <form action="" method="post" class="comment_form">
+                    <input class="comment_title" type="text" placeholder="Sujet">
+                    <textarea class="comment_body" resi type="text" placeholder="Avis"></textarea>
+                    <input type="submit" class="submit_comment" value="Poster">
+                </form>
+
+            </div>
+
+            <div class="users_comments">
+
+                <div class="comment">
+
+                    <h3 class="title_user_comment">Un avis</h2>
+                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
+
+                </div>
+
+                <div class="comment">
+
+                    <h3 class="title_user_comment">Un avis</h2>
+                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
+
+                </div>
+
+                <div class="comment">
+
+                    <h3 class="title_user_comment">Un avis</h2>
+                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <div class="sidebar">
+
+
+
+    </div>
+
 </body>
 </html>
