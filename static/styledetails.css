@@ -223,9 +223,9 @@ main {
 
 
 .comments {
-    border-top: solid #011022 3px;
-
     font-family: gotham_font;
+    color: white;
+    background-color: #011022;
 }
 
 
@@ -283,10 +283,16 @@ main {
     margin-bottom: 5vh;
 
     background-color: #011022;
-    border: solid #011022 3px;
+    border: solid white 3px;
     border-radius: 5px;
     color: white;
     font-size: larger;
+}
+
+
+.submit_comment:hover {
+    background-color: white;
+    color: #011022;
 }
 
 
@@ -302,7 +308,7 @@ main {
 .comment {
     width: 80%;
 
-    border-top: solid #011022 2px;
+    border-top: solid white 2px;
 }
 
 
@@ -327,8 +333,75 @@ main {
     top: 0;
     right: 0;
     margin-top: 10vh;
+    color: white;
+    font-family: gotham_font;
 
-    background-color: green;
+    background-color: #221301;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: scroll;
+
+    justify-content: space-around;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+.snow_infos_div {
+    width: 100%;
+}
+
+
+.snow_infos_title {
+    display: inline-block;
+    margin-left: 10%;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+
+
+.snow_infos_list {
+    list-style-type: none;
+    font-size: large;
+}
+
+
+.snow_info {
+    margin-bottom: 10px;
+}
+
+
+.station_info_div {
+    width: 100%;
+}
+
+
+.station_infos_title {
+    display: inline-block;
+    margin-left: 10%;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+
+
+.station_infos_list {
+    list-style-type: none;
+    font-size: large;
+}
+
+
+.station_info {
+    margin-bottom: 10px;
 }
 
 
@@ -336,6 +409,6 @@ footer {
     width: 100%;
     height: 10vh;
     margin: 0;
-    background-color: #011022;
+    background-color: white;
     position: absolute;
 }
