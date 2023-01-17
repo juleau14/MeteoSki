@@ -29,7 +29,7 @@ router.get('/infos/:stationName', async (req, res) => {
     const stationName = req.params.stationName;
     const data = await dataManagement.makeDataForInfoPage(stationName);
     console.log(data.searchedStation);
-    res.render('station_info.hbs', data);
+    res.render('station_infos.hbs', data);
 })
 
 
