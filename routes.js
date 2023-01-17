@@ -1,43 +1,15 @@
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql2');
+const dataManagement = require('./dataManagement');
 
 const router = express.Router();
-module.exports = router;
 
 
-const dbConnection = mysql.createConnection({   // create connection object to db
-    host: 'localhost',
-    user: 'juleau',
-    password: 'LeCafePop',
-    database: 'skidb',
-});
+router.use('/home', async (req, res) => {
 
-dbConnection.connect( (err) => {
-    if (err) throw err;
-    console.log("You are connected to DB");
-});
-
-
-router.use('/home', (req, res) => {
-
-    dbConnection.query(`SELECT * FROM stations`, (err, rows, fields) => {
-
-        let data = { 
-            "stations": {
-
-            },
-        };
-
-        for (let i = 0; i < rows.length; i++) {
-            data["stations"]["station"+(i+1).toString()] = rows[i];
-        }
-
-        
-        res.render('home', data);
-
-    });
-
+    const data = await dataManagement.getFromDb();
+    console.log(data);
+    res.render('home.hbs', data);
 
 });
 
@@ -54,3 +26,7 @@ router.use('*', (req, res, next) => {
 
     next();
 })
+
+
+
+module.exports = router;
