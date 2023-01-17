@@ -9,6 +9,9 @@ html {
 
     padding: 0;
     margin: 0;
+
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
@@ -179,20 +182,39 @@ main {
     flex-direction: column;
     margin-top: 10vh;
     width: 75vw;
+    transition: 0.5s;
 }
 
 
-.description {
+.description_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+
+.description_content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    backdrop-filter: sepia() blur(5px);
+    width: 80%;
+    height: fit-content;
+    padding: 100px 0;
+    color: #e4c200;
+    transition: 0.5s;
+}
+
+
+.description_content:hover {
+    background-color: white;
 }
 
 
 .title {
     font-family: gotham_font;
     font-size: xxx-large;
-    margin-top: 10vh;
-    margin-left: 10vw;
 }
 
 
@@ -201,24 +223,6 @@ main {
     text-align: justify;
     font-size: x-large;
     width: 70%;
-    margin-left: 7vw;
-}
-
-
-.station_image_div {
-    display: flex;
-    justify-content: center;
-
-    margin-bottom: 10vh;
-    margin-top: 10vh;
-}
-
-
-.station_image {
-    background-color: orange;
-
-    width: 60%;
-    height: 50vh;
 }
 
 
@@ -233,7 +237,6 @@ main {
     display: inline-block;
     margin-left: 10vw;
     font-size: xxx-large;
-    margin-top: 7vh;
 }
 
 
@@ -333,20 +336,40 @@ main {
     top: 0;
     right: 0;
     margin-top: 10vh;
-    color: white;
+    color:#011022;
     font-family: gotham_font;
 
-    background-color: #221301;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
 
-    overflow: scroll;
+    overflow: visible;
 
-    justify-content: space-around;
 
+    /* hiding scroll bar */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+
+    transition: 0.5s;
+}
+
+
+.display_sidebar_button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: #011022;
+    color: white;
+    border: solid #011022 3px;
+    font-size: xx-large;
+    transition: 0.5s;
+}
+
+
+.display_sidebar_button:hover {
+    background-color: white;
+    color: #011022;
 }
 
 

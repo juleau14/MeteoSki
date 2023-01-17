@@ -2,6 +2,7 @@ const request = require('request');
 const mysql2 = require('mysql2');
 const dbConnection = require('./db');
 const { map, data } = require('jquery');
+const { rescheduleJob } = require('node-schedule');
 
 
 const getNamesFromDb = () => {
@@ -13,7 +14,6 @@ const getNamesFromDb = () => {
             if (err) throw err;
             
             const names = result.map(el => el.name);
-            console.log(names)
             resolve(names);
 
         });
@@ -100,7 +100,7 @@ const fullUpdateAllStations = async () => {
 }
 
 
-const getFromDb = () => {
+const getAllStationsFromDb = () => {
 
     return new Promise((resolve, reject) => {
         
@@ -121,6 +121,36 @@ const getFromDb = () => {
 
         });
 
+    });
+
+}
+
+
+const getOneStationFromDb = (stationName) => {
+
+    return new Promise((resolve, reject) => {
+        dbConnection.query(`SELECT * FROM stations WHERE name='${stationName}'`, (err, result, fields) => {
+            if (err) throw err;
+            result[0].snowConditions = JSON.parse(result[0].snowConditions);
+            resolve(result[0]);
+        });
+    })
+
+}
+
+
+const makeDataForInfoPage = (stationName) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        var data = {};
+
+        data.allStationsNames = await getNamesFromDb();
+        data.searchedStation = await getOneStationFromDb(stationName);
+        data.allComments = [];
+
+        resolve(data);
+
     })
 
 }
@@ -128,8 +158,7 @@ const getFromDb = () => {
 
 module.exports = {
     fullUpdateAllStations,
-    getFromDb,
+    getOneStationFromDb,
+    getAllStationsFromDb,
+    makeDataForInfoPage,
 };
-
-
-getFromDb();
