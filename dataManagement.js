@@ -108,10 +108,13 @@ const getFromDb = () => {
 
             if (err) throw err;
 
-            var data = {};
+            var data = {
+                stations: []
+            }
 
             for (let i = 0; i < result.length; i++) {
-                data[`station${i+1}`] = JSON.parse(result[i].snowConditions);
+                result[i].snowConditions = JSON.parse(result[i].snowConditions);
+                data.stations.push(result[i]);
             }
 
             resolve(data);
@@ -127,3 +130,6 @@ module.exports = {
     fullUpdateAllStations,
     getFromDb,
 };
+
+
+getFromDb();

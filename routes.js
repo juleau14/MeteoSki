@@ -8,7 +8,6 @@ const router = express.Router();
 router.use('/home', async (req, res) => {
 
     const data = await dataManagement.getFromDb();
-    console.log(data);
     res.render('home.hbs', data);
 
 });

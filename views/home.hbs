@@ -21,7 +21,7 @@
                 
                 <div class="proposed_list">
                     {{#each stations}}
-                    <button class="proposed_station">{{this.basicInfo.name}}</button>
+                    <button class="proposed_station">{{this.name}}</button>
                     {{/each}}
                 </div>
 
@@ -57,7 +57,7 @@
 
                         <h3 class="altitude">En haut :</h3>
 
-                        <p class="value">{{ this.topsnow }}</p>
+                        <p class="value">{{ this.snowConditions.topSnowDepth }}</p>
 
                     </div>
                     
@@ -65,7 +65,7 @@
 
                         <h3 class="altitude">En bas :</h3>
 
-                        <p class="value">{{ this.botsnow }}</p>
+                        <p class="value">{{ this.snowConditions.botSnowDepth }}</p>
 
                     </div>
 
