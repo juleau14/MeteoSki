@@ -13,7 +13,7 @@ const job = schedule.scheduleJob('30 * * * *', dataManagement.fullUpdateAllStati
 
 app.set('view engine', 'hbs');
 
-app.use(express.static('static'));
+app.use(express.static('static/'));
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

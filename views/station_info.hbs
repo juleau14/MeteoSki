@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnowDepth</title>
-    <link rel="stylesheet" href="styledetails.css">
+    <link rel="stylesheet" href="/styledetails.css">
 </head>
 <body>
     <header>
@@ -18,8 +18,8 @@
                 <input type="text" name="search" class="search_bar" placeholder="Rechercher" required>
                 
                 <div class="proposed_list">
-                    {{#each stations}}
-                    <button class="proposed_station">{{this.name}}</button>
+                    {{#each allStationsNames}}
+                    <button class="proposed_station">{{this}}</button>
                     {{/each}}
                 </div>
 
@@ -36,7 +36,7 @@
 
         <div class="description">
 
-            <h1 class="title">Nom de la station</h1>
+            <h1 class="title">{{searchedStation.name}}</h1>
             <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae exercitationem blanditiis corporis ipsa dolores repellendus illo deserunt sed temporibus eos, doloribus et reprehenderit quam omnis iure optio officia voluptate illum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla iste voluptatum praesentium nostrum harum exercitationem voluptatibus deserunt laudantium minima. Possimus debitis, illo vel at ipsum esse architecto quod impedit animi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolore sint maiores fugiat dolores consequuntur impedit maxime iure voluptatibus amet porro non vero expedita saepe labore, tempore, itaque minima accusantium!Lorem</p>
 
         </div>
@@ -63,26 +63,16 @@
 
             <div class="users_comments">
 
-                <div class="comment">
-
-                    <h3 class="title_user_comment">Un avis</h2>
-                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
-
-                </div>
+                {{#each allComments}}
 
                 <div class="comment">
 
-                    <h3 class="title_user_comment">Un avis</h2>
-                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
+                    <h3 class="title_user_comment">{{this.title}}</h2>
+                    <p class="body_user_comment">{{this.body}}</p>
 
                 </div>
 
-                <div class="comment">
-
-                    <h3 class="title_user_comment">Un avis</h2>
-                    <p class="body_user_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aspernatur suscipit temporibus, ratione minima, veniam ipsum ut vitae impedit cupiditate minus debitis! Esse ipsum cumque consequuntur, veritatis sed dicta eos.</p>
-
-                </div>
+                {{/each}}
 
             </div>
 
@@ -97,10 +87,10 @@
             <h3 class="snow_infos_title">Infos neige</h3><br>
             
             <ul class="snow_infos_list">
-                <li class="snow_info">Neige au sommet :</li>
-                <li class="snow_info">Neige en bas :</li>
-                <li class="snow_info">Neige fraîche :</li>
-                <li class="snow_info">Dernière chute :</li>
+                <li class="snow_info">Neige au sommet : {{searchedStation.snowConditions.topSnowDepth}}</li>
+                <li class="snow_info">Neige en bas : {{searchedStation.snowConditions.botSnowDepth}}</li>
+                <li class="snow_info">Neige fraîche : {{searchedStation.snowConditions.freshSnowfall}}</li>
+                <li class="snow_info">Dernière chute : {{searchedStation.snowConditions.lastSnowfallDate}}</li>
             </ul>
 
         </div>
@@ -110,10 +100,9 @@
             <h3 class="station_infos_title">Infos station</h3><br>
             
             <ul class="station_infos_list">
-                <li class="station_info">Localisation :</li>
-                <li class="station_info">Nom :</li>
-                <li class="station_info">Altitude maximale :</li>
-                <li class="station_info">Altitude minimale :</li>
+                <li class="station_info">Localisation : {{searchedStation.snowConditions.basicInfo.region}}</li>
+                <li class="station_info">Altitude maximale : {{searchedStation.snowConditions.basicInfo.topLiftElevation}}</li>
+                <li class="station_info">Altitude minimale : {{searchedStation.snowConditions.basicInfo.botLiftElevation}}</li>
             </ul>
 
         </div>

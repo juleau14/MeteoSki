@@ -131,6 +131,7 @@ const getOneStationFromDb = (stationName) => {
     return new Promise((resolve, reject) => {
         dbConnection.query(`SELECT * FROM stations WHERE name='${stationName}'`, (err, result, fields) => {
             if (err) throw err;
+            result[0].snowConditions = JSON.parse(result[0].snowConditions);
             resolve(result[0]);
         });
     })
@@ -147,8 +148,6 @@ const makeDataForInfoPage = (stationName) => {
         data.allStationsNames = await getNamesFromDb();
         data.searchedStation = await getOneStationFromDb(stationName);
         data.allComments = [];
-
-        console.log('\n\n\ndata:', data);
 
         resolve(data);
 

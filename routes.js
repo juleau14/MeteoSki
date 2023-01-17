@@ -5,10 +5,9 @@ const dataManagement = require('./dataManagement');
 const router = express.Router();
 
 
-router.get('/home/:opt/', async (req, res) => {
+router.get('/home', async (req, res) => {
 
     const data = await dataManagement.getAllStationsFromDb();
-    console.log(req.path);
     res.render('home.hbs', data);
 
 });
@@ -27,9 +26,9 @@ router.get('/infos', (req, res) => {
 
 
 router.get('/infos/:stationName', async (req, res) => {
-    const station = req.params.stationName;
-    const data = await dataManagement.makeDataForInfoPage(station);
-    console.log(req.path);
+    const stationName = req.params.stationName;
+    const data = await dataManagement.makeDataForInfoPage(stationName);
+    console.log(data.searchedStation);
     res.render('station_info.hbs', data);
 })
 
