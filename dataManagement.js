@@ -149,8 +149,6 @@ const makeDataForInfoPage = (stationName) => {
         data.searchedStation = await getOneStationFromDb(stationName);
         data.allComments = [];
 
-        console.log(data);
-
         resolve(data);
 
     })
