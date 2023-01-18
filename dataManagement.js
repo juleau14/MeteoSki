@@ -100,7 +100,7 @@ const fullUpdateAllStations = async () => {
 }
 
 
-const getAllStationsFromDb = () => {
+const makeDataForHomepage = () => {
 
     return new Promise((resolve, reject) => {
         
@@ -159,7 +159,7 @@ const makeDataForInfoPage = (stationName) => {
 module.exports = {
     fullUpdateAllStations,
     getOneStationFromDb,
-    getAllStationsFromDb,
+    makeDataForHomepage,
     makeDataForInfoPage,
 };
 

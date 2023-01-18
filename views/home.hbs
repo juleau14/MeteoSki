@@ -48,29 +48,31 @@
         <div class="stations_content">
             
             {{#each stations}}
-            <div class="station">
-                <h2 class="station_name">{{ this.name }}</h2>
+            <a href="/infos/{{this.name}}">
+                <div class="station">
+                    <h2 class="station_name">{{ this.name }}</h2>
 
-                <div class="station_datas">
-                    
-                    <div class="top_snow">
+                    <div class="station_datas">
+                        
+                        <div class="top_snow">
 
-                        <h3 class="altitude">En haut :</h3>
+                            <h3 class="altitude">En haut :</h3>
 
-                        <p class="value">{{ this.snowConditions.topSnowDepth }}</p>
+                            <p class="value">{{ this.snowConditions.topSnowDepth }}</p>
+
+                        </div>
+                        
+                        <div class="bottom_snow">
+
+                            <h3 class="altitude">En bas :</h3>
+
+                            <p class="value">{{ this.snowConditions.botSnowDepth }}</p>
+
+                        </div>
 
                     </div>
-                    
-                    <div class="bottom_snow">
-
-                        <h3 class="altitude">En bas :</h3>
-
-                        <p class="value">{{ this.snowConditions.botSnowDepth }}</p>
-
-                    </div>
-
                 </div>
-            </div>
+            </a>
             {{/each}}
 
         </div>

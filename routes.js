@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/home', async (req, res) => {
 
-    const data = await dataManagement.getAllStationsFromDb();
+    const data = await dataManagement.makeDataForHomepage();
     res.render('home.hbs', data);
 
 });
