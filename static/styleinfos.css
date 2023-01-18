@@ -226,6 +226,32 @@ main {
 }
 
 
+.weather {
+    width: 100%;
+    background-color: #feefdd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.weather_title {
+    font-family: gotham_font;
+    font-size: xxx-large;
+    color: #011022;
+}
+
+
+.weather_content {
+    display: flex;
+    width: 90%;
+    height: 60vw;
+    background-color: white;
+    margin-bottom: 10vh;
+}
+
+
 .comments {
     font-family: gotham_font;
     color: white;
@@ -237,6 +263,7 @@ main {
     display: inline-block;
     margin-left: 10vw;
     font-size: xxx-large;
+    margin-top: 20vh;
 }
 
 
