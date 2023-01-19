@@ -51,6 +51,40 @@
 
             <div class="weather_content">
 
+                {{#each searchedStation.forecast.forecast5Day}}
+
+                    <div class="day">
+
+                        <h3 class="day_name">{{this.dayOfWeek}}</h3>
+
+                        <div class="morning_weather">
+                            <p>Min : {{this.am.minTemp}}</p>
+                            <p>Max : {{this.am.maxTemp}}</p>
+                            <p>Chuttes de neige : {{this.am.snow}}</p>
+                            <p>Pluie : {{this.am.rain}}</p>
+                            <p>Vent : {{this.am.windSpeed}}</p>
+                        </div>
+
+                        <div class="afternoon_weather">
+                            <p>Min : {{this.pm.minTemp}}</p>
+                            <p>Max : {{this.pm.maxTemp}}</p>
+                            <p>Chuttes de neige : {{this.pm.snow}}</p>
+                            <p>Pluie : {{this.pm.rain}}</p>
+                            <p>Vent : {{this.pm.windSpeed}}</p>
+                        </div>
+
+                        <div class="night_weather">
+                            <p>Min : {{this.night.minTemp}}</p>
+                            <p>Max : {{this.night.maxTemp}}</p>
+                            <p>Chuttes de neige : {{this.night.snow}}</p>
+                            <p>Pluie : {{this.night.rain}}</p>
+                            <p>Vent : {{this.night.windSpeed}}</p>
+                        </div>
+
+                    </div>
+
+                {{/each}}
+
             </div>
 
         </section>

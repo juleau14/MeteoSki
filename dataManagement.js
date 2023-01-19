@@ -51,6 +51,34 @@ const requestSnowConditions = async (stationName) => {          // request des s
 }
 
 
+const requestForecast = async (stationName) => {          // request des snow conditions d'UNE station
+
+    return new Promise((resolve, reject) => {
+        
+        const options = {
+            method: 'GET',
+            url: `https://ski-resort-forecast.p.rapidapi.com/${stationName}/forecast`,
+            qs: {units: 'm', el: 'mid'},
+            headers: {
+              'X-RapidAPI-Key': 'bfecc8036emsh62a26a699b53913p109d58jsn52aea8b3efb7',
+              'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com',
+              useQueryString: true
+            }
+          };
+
+        request(options, function (error, response, body) {
+
+            if (error) throw new Error(error);
+
+            resolve(body);
+
+        });
+
+    });
+
+}
+
+
 const updateSnowConditions = (stationName, snowConditionsData) => {         // maj de la DB d'UNE station
 
     return new Promise((resolve, reject) => {
@@ -68,12 +96,30 @@ const updateSnowConditions = (stationName, snowConditionsData) => {         // m
 }
 
 
+const updateForecast = (stationName, forecastData) => {         // maj de la DB d'UNE station
+
+    return new Promise((resolve, reject) => {
+
+        dbConnection.query(`UPDATE stations SET forecast='${forecastData}' WHERE name='${stationName}'`, (err, result, fields) => {
+
+            if (err) throw err;
+            console.log(`Forecast updated for ${stationName}`);
+            resolve();
+
+        });
+        
+    });
+
+}
+
+
 const fullUpdateStation = (stationName) => {              // maj complete d'UNE    station (requete ET maj mysql)
 
     return new Promise(async (resolve, reject) => {
         const snowConditionsData = await requestSnowConditions(stationName);
-        console.log(snowConditionsData, '\n');
+        const forecastData = await requestForecast(stationName);
         await updateSnowConditions(stationName, snowConditionsData);
+        await updateForecast(stationName, forecastData);
 
         console.log(`${stationName} full updated.`);
 
@@ -132,6 +178,7 @@ const getOneStationFromDb = (stationName) => {
         dbConnection.query(`SELECT * FROM stations WHERE name='${stationName}'`, (err, result, fields) => {
             if (err) throw err;
             result[0].snowConditions = JSON.parse(result[0].snowConditions);
+            result[0].forecast = JSON.parse(result[0].forecast);
             resolve(result[0]);
         });
     })
@@ -149,6 +196,8 @@ const makeDataForInfoPage = (stationName) => {
         data.searchedStation = await getOneStationFromDb(stationName);
         data.allComments = [];
 
+
+        console.log(data.searchedStation.forecast.forecast5Day);
         resolve(data);
 
     })
@@ -162,4 +211,3 @@ module.exports = {
     makeDataForHomepage,
     makeDataForInfoPage,
 };
-
