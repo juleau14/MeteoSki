@@ -252,6 +252,14 @@ main {
     background-color: white;
     margin-bottom: 10vh;;
     grid-gap: 2px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+ 
+}
+
+.weather_content::-webkit-scrollbar {
+    display: none;
 }
 
 .day {
@@ -259,6 +267,7 @@ main {
     flex-direction: column;
     background-color: #011022;
     color: white;
+    
 }
 
 

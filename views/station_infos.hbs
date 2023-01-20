@@ -58,6 +58,13 @@
                         <h3 class="day_name">{{this.dayOfWeek}}</h3>
 
                         <div class="morning_weather">
+                            <p>
+                                {{#compare this.am.summary "==" 'snow showers'}}
+                                caca
+                                {{else}}
+                                pipi
+                                {{/compare}}
+                            </p>
                             <p>Min : {{this.am.minTemp}}</p>
                             <p>Max : {{this.am.maxTemp}}</p>
                             <p>Chuttes de neige : {{this.am.snow}}</p>
@@ -66,6 +73,7 @@
                         </div>
 
                         <div class="afternoon_weather">
+                            <p>{{this.pm.summary}}</p>
                             <p>Min : {{this.pm.minTemp}}</p>
                             <p>Max : {{this.pm.maxTemp}}</p>
                             <p>Chuttes de neige : {{this.pm.snow}}</p>
@@ -74,6 +82,7 @@
                         </div>
 
                         <div class="night_weather">
+                            <p>{{this.night.summary}}</p>
                             <p>Min : {{this.night.minTemp}}</p>
                             <p>Max : {{this.night.maxTemp}}</p>
                             <p>Chuttes de neige : {{this.night.snow}}</p>
