@@ -37,22 +37,14 @@
 
     <div class="content">
 
-        <div class="global_weather_div">
-            <p class="global_weather_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel odio nisi iusto, fugiat ex aliquid error cupiditate magnam ea in, quidem accusamus expedita consequatur dolorem quaerat, at eveniet laborum laudantium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate odio unde vero suscipit aspernatur hic delectus aut totam explicabo cumque, deleniti iste ratione aperiam molestias, quae labore adipisci quia obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in illum, architecto illo fuga laborum assumenda laboriosam eum. Excepturi minima nemo est non? Officia recusandae harum iusto, voluptatibus assumenda soluta.</p>
-        </div>
-
-        <div class="displayer_div">
-            <button class="displayer">Météo du jour</button>
-        </div>
-
         <div class="stations_content">
             
             {{#each stations}}
-            <a href="/infos/{{this.name}}">
+            <a class="station_link" href="/infos/{{this.name}}">
                 <div class="station">
                     <h2 class="station_name">{{ this.name }}</h2>
 
-                    <div class="station_datas">
+                    <div class="station_data">
                         
                         <div class="top_snow">
 

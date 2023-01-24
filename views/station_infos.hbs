@@ -59,11 +59,7 @@
 
                         <div class="morning_weather">
                             <p>
-                                {{#compare this.am.summary "==" 'snow showers'}}
-                                caca
-                                {{else}}
-                                pipi
-                                {{/compare}}
+                                {{this.am.summary}}
                             </p>
                             <p>Min : {{this.am.minTemp}}</p>
                             <p>Max : {{this.am.maxTemp}}</p>

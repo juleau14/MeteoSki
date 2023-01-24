@@ -1,4 +1,5 @@
 const searchBar = document.querySelector(".search_bar");
+const searchButton = document.querySelector(".search_button");
 const proposedList = document.querySelector(".proposed_list");
 const proposedStations = document.querySelectorAll(".proposed_station");
 const sidebar = document.querySelector(".sidebar");
@@ -13,6 +14,7 @@ searchBar.addEventListener("input", function() {        // a chaque fois qu'on e
     if (searchBar.value != "") {
         proposedList.style.display = "flex";
         proposedList.style.flexDirection = "column";
+        searchButton.style.display = "flex";
 
         for (let i = 0; i < proposedStations.length; i++) {         // on parcourt la liste des stations proposées
             let stationName = proposedStations[i].innerHTML;
@@ -38,6 +40,7 @@ searchBar.addEventListener("input", function() {        // a chaque fois qu'on e
 
     else {
         proposedList.style.display = "none";
+        searchButton.style.display = "none";
     }
 
 });
