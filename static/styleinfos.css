@@ -182,7 +182,9 @@ main {
     margin-top: -10px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
 }
 
 .today_weather_div {
@@ -210,7 +212,7 @@ main {
     transition: 0.2s;
 }
 
-.weather_icon {
+.today_weather_icon {
     width: 60%;
 }
 
@@ -228,6 +230,100 @@ main {
     background-color: #011022;
 }
 
+.forecast_weather {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    border: solid #011022 3px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    margin-top: 70px;
+    background-color: white;
+
+    font-family: gotham_font;
+    color :#011022;
+
+    margin-bottom: 40px;
+}
+
+.day {
+    width: 100%;
+    height: 50px;
+    border-bottom: solid #011022 1px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.forecast_day_name {
+    margin: 0;
+}
+
+.forecast_weather_icon {
+    height: 80%;
+}
+
+
 .waves_bright_to_dark {
     width: 100%;
+    margin-bottom: -10px;
+}
+
+.comments {
+    background-color: #011022;
+    padding-top: 70px;
+}
+
+.comment_form {
+    background-color: #011022;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.comment_title {
+    width: 40%;
+    height: 30px;
+    margin: 20px 20px;
+    font-family: gotham_font;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.comment_body {
+    width: 70%;
+    height: 100px;
+    margin: 0 20px;
+    resize: none;
+    font-family: gotham_font;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.submit_comment {
+    margin: 20px 20px;
+    width: 25%;
+    height: 30px;
+    background-color: white;
+    color: #011022;
+    font-family: gotham_font;
+    border: none;
+    border-radius: 10px;
+}
+
+.submit_comment:hover {
+    background-color: #011022;
+    color: white;
+    border: solid white 1px;
+}
+
+footer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: gotham_font;
+    color: #011022;
+    min-height: 20vh;
 }

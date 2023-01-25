@@ -53,7 +53,7 @@
             <div class="today_weather_div">
 
                 <div class="today_weather morning">
-                    <img class="weather_icon" src="/medias/weather_icons/weather/64x64/day/113.png" alt="icon">
+                    <img class="today_weather_icon" src="/medias/weather_icons/weather/64x64/day/113.png" alt="icon">
                     <h3 class="today_temperature">-2°C/3°C</h2>
                     <h5 class="today_info">R : -10°C</h5>
                     <h5 class="today_info">N : 2cm</h5>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="today_weather afternoon">
-                    <img class="weather_icon" src="/medias/weather_icons/weather/64x64/day/293.png" alt="icon">
+                    <img class="today_weather_icon" src="/medias/weather_icons/weather/64x64/day/293.png" alt="icon">
                     <h3 class="today_temperature">-2°C/3°C</h2>
                     <h5 class="today_info">Res. : -10°C</h5>
                     <h5 class="today_info">Ne : 2cm</h5>
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="today_weather night">
-                    <img class="weather_icon" src="/medias/weather_icons/weather/64x64/day/308.png" alt="icon">
+                    <img class="today_weather_icon" src="/medias/weather_icons/weather/64x64/day/308.png" alt="icon">
                     <h3 class="today_temperature">-2°C/3°C</h2>
                     <h5 class="today_info">R : -10°C</h5>
                     <h5 class="today_info">N : 2cm</h5>
@@ -86,9 +86,12 @@
                 {{#each searchedStation.forecast.forecast5Day}}
 
                     <div class="day">
-
-                        
-
+                        <h5 class="forecast_day_name">{{this.dayOfWeek}}</h5>
+                        <img class="forecast_weather_icon" src="/medias/weather_icons/weather/64x64/day/308.png" alt="">
+                        <h5 class="forecast_info">{{this.am.minTemp}}/{{this.pm.maxTemp}}</h5>
+                        <h5 class="forecast_info">{{this.am.windSpeed}}</h5>
+                        <h5 class="forecast_info">{{this.am.snow}}</h5>
+                        <h5 class="forecast_info">{{this.am.rain}}</h5>
                     </div>
 
                 {{/each}}
@@ -100,8 +103,6 @@
         <img class="waves_bright_to_dark" src="/medias/waves1.svg" alt="transition">
 
         <section class="comments">
-
-            <h2 class="comments_title">AVIS</h2>
 
             <div class="comment_form_div">
 
@@ -133,7 +134,7 @@
     </main>
 
     <footer>
-        <a href="https://www.flaticon.com/free-icons/down-arrow" title="down arrow icons">Down arrow icons created by th studio - Flaticon</a>
+        {{!-- <a href="https://www.flaticon.com/free-icons/down-arrow" title="down arrow icons">Down arrow icons created by th studio - Flaticon</a> --}}
     </footer>
 
 </body>
