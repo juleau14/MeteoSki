@@ -211,3 +211,4 @@ module.exports = {
     makeDataForHomepage,
     makeDataForInfoPage,
 };
+
