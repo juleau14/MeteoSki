@@ -264,3 +264,9 @@ footer {
         height: 26vw;
     }
 }
+
+@media all and (min-width: 1450px) {
+    body {
+        font-size: x-large;
+    }
+}
