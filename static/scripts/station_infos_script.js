@@ -1,18 +1,21 @@
 const searchBar = document.querySelector(".search_bar");
+const searchButton = document.querySelector(".search_button");
 const proposedList = document.querySelector(".proposed_list");
 const proposedStations = document.querySelectorAll(".proposed_station");
-const sidebar = document.querySelector(".sidebar");
-const displaySideBarButton = document.querySelector(".display_sidebar_button");
-const main = document.querySelector("main");
 
+const descriptionContent = document.querySelector(".description_content");
+const hideDescriptionButton = document.querySelector(".hide_description_button");
+var descriptionIsOpened = true;
 
-var sidebarIsOpened = true;
+const weatherSection = document.querySelector(".weather");
+const scrollDownButton = document.querySelector(".scroll_down_button");
 
 
 searchBar.addEventListener("input", function() {        // a chaque fois qu'on entre un car dans la barre de recherche
     if (searchBar.value != "") {
         proposedList.style.display = "flex";
         proposedList.style.flexDirection = "column";
+        searchButton.style.display = "flex";
 
         for (let i = 0; i < proposedStations.length; i++) {         // on parcourt la liste des stations proposées
             let stationName = proposedStations[i].innerHTML;
@@ -38,6 +41,7 @@ searchBar.addEventListener("input", function() {        // a chaque fois qu'on e
 
     else {
         proposedList.style.display = "none";
+        searchButton.style.display = "none";
     }
 
 });
@@ -64,20 +68,21 @@ for (let i = 0; i < proposedStations.length; i++) {
     });
 };
 
-
-displaySideBarButton.addEventListener("click", function() {
-    console.log("click");
-    if (sidebarIsOpened) {
-        sidebar.style.marginRight = "-25vw";
-        displaySideBarButton.style.transform = "rotate(180deg) translate(100%, 50%)";
-        main.style.width = "100%";
-        sidebarIsOpened = false;
+hideDescriptionButton.addEventListener("click", function() {
+    if (descriptionIsOpened) {
+        descriptionContent.style.marginLeft = "-200vw";
+        hideDescriptionButton.innerHTML = "Show Text"
+        descriptionIsOpened = false;
     }
 
     else {
-        sidebar.style.marginRight = "0";
-        displaySideBarButton.style.transform = "rotate(0) translate(0, -50%)";
-        main.style.width = "75vw";
-        sidebarIsOpened = true;
+        descriptionContent.style.marginLeft = "0";
+        hideDescriptionButton.innerHTML = "Hide Text";
+        descriptionIsOpened = true;
     }
+})
+
+
+scrollDownButton.addEventListener("click", function() {
+    window.scrollBy(0, weatherSection.getBoundingClientRect().top);
 });

@@ -5,500 +5,325 @@
 
 
 html {
+    margin: 0;
+    padding: 0;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
     scroll-behavior: smooth;
 
-    padding: 0;
-    margin: 0;
-
-    background-size: cover;
-    background-attachment: fixed;
+    width: 100%;
 }
-
 
 body {
     margin: 0;
     padding: 0;
+
+    width: 100%;
 }
 
-
+svg {
+    margin: 0;
+    width: 100%;
+}
 
 header {
     display: flex;
 
-    position: fixed;
-    top: 0;
-
-    width: 100%;
-    height: 10vh;
-    min-height: 100px;
+    align-items: center;
+    justify-content: center;
 
     background-color: #011022;
-    align-items: center;
-    justify-content: space-between;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    padding: 0;
 
     z-index: 1000;
-    
 }
 
-
-.logo {
-    height: 8vh;
-    width: 8vh;
-
-    margin-left: 20px;
+.logo_link {
+    display: none;
 }
-
 
 .search_form {
     display: flex;
-    flex-direction: row;
-
-    align-items: center;
 }
-
-
-.search_bar_div {
-    background-color: #011022;
-    width: 20vw;
-
-    display: flex;
-    flex-direction: column;
-    
-}
-
 
 .search_bar {
-    height: 5vh;
-    width: 20vw;
-
-    background-color: transparent;
-
-    font-size: large;
-    font-family: gotham_font;
-    color: white;
-
     border: solid white 3px;
-    border-radius: 10px;
-
+    font-family: gotham_font;
+    width: 50vw;
+    height: 30px;
+    border: solid white 3px;
+    background-color: #011022;
+    color: white;
+    border-radius: 5px;
     text-align: center;
+    margin: 0;
 }
-
-
-.search_bar::placeholder {
-    text-align: center;
-}
-
 
 .proposed_list {
-    border: solid #011022 3px;
-    border-top: none;
-
-    display: none;
+    display: flex;
     flex-direction: column;
-
     position: absolute;
-
-    margin-top: calc(5vh + 6px);
-
-    width: calc(20vw + 6px);
-
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
+    width: 51vw;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     overflow: hidden;
 }
 
-
 .proposed_station {
+    font-family: gotham_font;
     background-color: white;
+    color: #011022;
     border: none;
     border-bottom: solid #011022 1px;
-
-    font-family: gotham_font;
-    font-size: large;
-
-    height: 40px;
-
-    display: flex;
-    align-items: center;
+    height: 30px;
+    display: none;
     justify-content: center;
+    align-items: center;
 }
-
 
 .proposed_station:hover {
-    color: white;
     background-color: #011022;
+    color: white;
 }
-
 
 .search_button {
-    background: none;
-    border: none;
-
-    margin-left: 30px;
-    color: white;
+    display: none;
+    background-color: #011022;
     font-family: gotham_font;
-    font-size: 1em;
-
-    height: 4vh;
-    width: 4vh;
-
+    color: white;
+    border: none;
     border-radius: 10px;
+    margin-left: 5px;
 }
-
 
 .search_button:hover {
     background-color: white;
     color: #011022;
 }
 
-
 .login_button {
-    margin-right: 20px;
+    display: none;
+}
 
-    width: 7vw;
-    height: 4vh;
+main {
+    width: 100%;
+}
 
-    background-color: #011022;
-    border: solid white 3px;
-    border-radius: 20px;
-    color: white;
-
+.description_div {
+    width: 100%;
+    height: calc(100vh - 70px);
     font-family: gotham_font;
-    font-size: 1.0em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide_description_button {
+    position: absolute;
+    top: 140px;
+    background-color: transparent;
+    border-radius: 20px;
+    border: solid white 2px;
+    font-family: gotham_font;
+    color: white;
+    padding: 10px;
+}
+
+.hide_description_button:hover {
+    background-color: white;
+    color: #011022;
+}
+
+.description_content {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.text {
+    text-align: justify;
+}
+
+
+.scroll_down_button {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    top: 90vh;
+    border: none;
+    transition: 0.2s;
+}
+
+.scroll_down_button:hover {
+    transform: translate(0, 30%);
+}
+
+.scroll_down_button img {
+    width: 100%;
+    height: 100%;
+}
+
+.weather {
+    background-color: #feefdd;
+    margin-top: -10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.today_weather_div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px;
+    width: 80%;
+}
+
+.today_weather_div h5 {
+    margin: 5px 0;
+}
+
+.today_weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: gotham_font;
+    color: white;
+    max-width: 90vw;
+    padding: 20px 0;
+
+    border-radius: 10px;
 
     transition: 0.2s;
 }
 
-
-.login_button:hover {
-    background-color: white;
-    color: #011022;
+.today_weather_icon {
+    width: 60%;
 }
 
+.morning {
+    background-color: #011022;
+}
 
-main {
+.afternoon {
+    background-color: #011022;
+    border-left: solid white 1px;
+    border-right: solid white 1px;
+}
+
+.night {
+    background-color: #011022;
+}
+
+.forecast_weather {
+    width: 90vw;
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
-    width: 75vw;
-    transition: 0.5s;
-}
+    border: solid #011022 3px;
+    border-radius: 10px;
+    overflow: hidden;
 
-
-.description_div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-}
-
-
-.description_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    backdrop-filter: sepia() blur(5px);
-    width: 80%;
-    height: fit-content;
-    padding: 100px 0;
-    color: #e4c200;
-    transition: 0.5s;
-}
-
-
-.description_content:hover {
+    margin-top: 70px;
     background-color: white;
-}
 
-
-.title {
     font-family: gotham_font;
-    font-size: xxx-large;
-}
+    color :#011022;
 
-
-.text {
-    font-family: gotham_font;
-    text-align: justify;
-    font-size: x-large;
-    width: 70%;
-}
-
-
-.weather {
-    width: 100%;
-    background-color: #feefdd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.weather_title {
-    font-family: gotham_font;
-    font-size: xxx-large;
-    color: #011022;
-}
-
-
-.weather_content {
-    display: inline-grid;
-    grid-template-columns:  repeat(5, 1fr);
-    grid-template-rows:  repeat(1, 1fr);
-    width: 90%;
-    height: 40vw;
-    background-color: white;
-    margin-bottom: 10vh;;
-    grid-gap: 2px;
-    overflow: scroll;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
- 
-}
-
-.weather_content::-webkit-scrollbar {
-    display: none;
+    margin-bottom: 40px;
 }
 
 .day {
+    width: 100%;
+    height: 50px;
+    border-bottom: solid #011022 1px;
     display: flex;
-    flex-direction: column;
-    background-color: #011022;
-    color: white;
-    
+    justify-content: space-around;
+    align-items: center;
 }
 
-
-.day_name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10%;
-    font-family: gotham_font;
-    border-bottom: solid white 1px;
+.forecast_day_name {
     margin: 0;
 }
 
-
-.morning_weather, .afternoon_weather, .night_weather {
-    width: 100%;
-    height: 30%;
-    font-family: gotham_font;
-    padding-left: 10px;
-    border-bottom: solid white 1px;
+.forecast_weather_icon {
+    height: 80%;
 }
 
+
+.waves_bright_to_dark {
+    width: 100%;
+    margin-bottom: -10px;
+}
 
 .comments {
-    font-family: gotham_font;
-    color: white;
     background-color: #011022;
+    padding-top: 70px;
 }
-
-
-.comments_title {
-    display: inline-block;
-    margin-left: 10vw;
-    font-size: xxx-large;
-    margin-top: 20vh;
-}
-
-
-.comment_form_div {
-    display: flex;
-}
-
 
 .comment_form {
+    background-color: #011022;
     display: flex;
     flex-direction: column;
-
-    margin-top: 4vh;
-    margin-left: 7vw;
+    width: 100%;
 }
-
 
 .comment_title {
+    width: 40%;
+    height: 30px;
+    margin: 20px 20px;
     font-family: gotham_font;
-    width: 30vw;
-    height: 40px;
-    padding-left: 30px;
-
-    font-size: large;
+    border-radius: 10px;
+    padding-left: 10px;
 }
-
 
 .comment_body {
-    width: 50vw;
-    height: 20vh;
-    font-family: gotham_font;
-
-    margin-top: 3vh;
-
-    padding: 30px;
+    width: 70%;
+    height: 100px;
+    margin: 0 20px;
     resize: none;
-
-    font-size: large;
+    font-family: gotham_font;
+    border-radius: 10px;
+    padding: 10px;
 }
-
 
 .submit_comment {
-    width: 300px;
-    height: 50px;
-    font-family: gotham_font;
-    margin-top: 3vh;
-    margin-bottom: 5vh;
-
-    background-color: #011022;
-    border: solid white 3px;
-    border-radius: 5px;
-    color: white;
-    font-size: larger;
-}
-
-
-.submit_comment:hover {
+    margin: 20px 20px;
+    width: 25%;
+    height: 30px;
     background-color: white;
     color: #011022;
+    font-family: gotham_font;
+    border: none;
+    border-radius: 10px;
 }
 
+.submit_comment:hover {
+    background-color: #011022;
+    color: white;
+    border: solid white 1px;
+}
 
-.users_comments {
+footer {
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    margin-bottom: 10vh;
-}
-
-
-.comment {
-    width: 80%;
-
-    border-top: solid white 2px;
-}
-
-
-.title_user_comment {
-    display: inline-block;
-    margin-left: 150px;
-    margin-top: 50px;
-}
-
-
-.body_user_comment {
-    margin-left: 100px;
-    margin-bottom: 50px;
-    width: 80%;
-}
-
-
-.sidebar {
-    height: 90vh;
-    width: 25vw;
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin-top: 10vh;
-    color:#011022;
     font-family: gotham_font;
-
-    background-color: white;
-
-    display: flex;
-    flex-direction: column;
-
-    overflow: visible;
-
-
-    /* hiding scroll bar */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
-    transition: 0.5s;
-}
-
-
-.display_sidebar_button {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    background-color: #011022;
-    color: white;
-    border: solid #011022 3px;
-    font-size: xx-large;
-    transition: 0.5s;
-}
-
-
-.display_sidebar_button:hover {
-    background-color: white;
     color: #011022;
-}
-
-
-.sidebar::-webkit-scrollbar {
-    display: none;
-}
-
-
-
-
-.snow_infos_div {
-    width: 100%;
-}
-
-
-.snow_infos_title {
-    display: inline-block;
-    margin-left: 10%;
-    font-size: xx-large;
-    text-decoration: underline;
-}
-
-
-.snow_infos_list {
-    list-style-type: none;
-    font-size: large;
-}
-
-
-.snow_info {
-    margin-bottom: 10px;
-}
-
-
-.station_info_div {
-    width: 100%;
-}
-
-
-.station_infos_title {
-    display: inline-block;
-    margin-left: 10%;
-    font-size: xx-large;
-    text-decoration: underline;
-}
-
-
-.station_infos_list {
-    list-style-type: none;
-    font-size: large;
-}
-
-
-.station_info {
-    margin-bottom: 10px;
-}
-
-
-footer {
-    width: 100%;
-    height: 10vh;
-    margin: 0;
-    background-color: white;
-    position: absolute;
+    min-height: 20vh;
 }

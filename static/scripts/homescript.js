@@ -1,40 +1,18 @@
-const displayer = document.querySelector(".displayer");
-const globalWeather = document.querySelector(".global_weather_div");
 const searchBar = document.querySelector(".search_bar");
+const searchButton = document.querySelector(".search_button");
 const proposedList = document.querySelector(".proposed_list");
 const proposedStations = document.querySelectorAll(".proposed_station");
 
+
 var weatherIsHidden = true;
 
-
-searchBar.blur(function() {
-    proposedList.style.display = "none";
-});
-
-
-displayer.addEventListener("click", function() {
-    if (!weatherIsHidden) { // si ce n'est pas caché
-        globalWeather.style.marginTop = "-40vh";
-        globalWeather.style.backdropFilter = "none";
-        weatherIsHidden = true;
-        displayer.innerHTML = "Météo du jour";
-    }
-
-    else {
-        globalWeather.style.marginTop = "10vh";
-        globalWeather.style.display = "flex";
-
-        globalWeather.style.backdropFilter = "blur(10px)";
-        weatherIsHidden = false;
-        displayer.innerHTML = "Cacher";
-    }
-});
 
 
 searchBar.addEventListener("input", function() {        // a chaque fois qu'on entre un car dans la barre de recherche
     if (searchBar.value != "") {
         proposedList.style.display = "flex";
         proposedList.style.flexDirection = "column";
+        searchButton.style.display = "flex";
 
         for (let i = 0; i < proposedStations.length; i++) {         // on parcourt la liste des stations proposées
             let stationName = proposedStations[i].innerHTML;
@@ -60,6 +38,7 @@ searchBar.addEventListener("input", function() {        // a chaque fois qu'on e
 
     else {
         proposedList.style.display = "none";
+        searchButton.style.display ="none";
     }
 
 });
